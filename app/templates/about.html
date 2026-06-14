@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About — DevOps Home Lab</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 20px 40px;
+            border-bottom: 1px solid #00d4ff33;
+        }
+        header h1 { font-size: 1.5rem; color: #00d4ff; letter-spacing: 2px; }
+        nav {
+            background: #12122a;
+            padding: 12px 40px;
+            border-bottom: 1px solid #ffffff11;
+        }
+        nav a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin-right: 24px;
+            font-size: 0.9rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        h2 { font-size: 2rem; margin-bottom: 16px; color: #fff; }
+        p { color: #888; line-height: 1.8; margin-bottom: 20px; }
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .tag {
+            background: #00d4ff11;
+            border: 1px solid #00d4ff44;
+            color: #00d4ff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        .roadmap {
+            margin-top: 40px;
+            border-left: 2px solid #00d4ff44;
+            padding-left: 24px;
+        }
+        .roadmap-item {
+            margin-bottom: 20px;
+        }
+        .roadmap-item h4 {
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .roadmap-item p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        .done { color: #22c55e; }
+        .pending { color: #888; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⚡ DEVOPS HOME LAB</h1>
+</header>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/about">About</a>
+</nav>
+
+<div class="container">
+    <h2>About This Project</h2>
+    <p>
+        This is my living DevOps portfolio project. I'm Anass, a self-taught
+        DevOps engineer in training based in Morocco. Every skill I learn gets
+        added to this project as real, working code.
+    </p>
+    <p>
+        No degree. No bootcamp. Just consistent daily learning and building
+        in public on GitHub.
+    </p>
+
+    <div class="stack">
+        <span class="tag">Linux</span>
+        <span class="tag">Bash</span>
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Git</span>
+        <span class="tag">Docker — coming soon</span>
+        <span class="tag">AWS — coming soon</span>
+        <span class="tag">Kubernetes — coming soon</span>
+    </div>
+
+    <div class="roadmap">
+        <div class="roadmap-item">
+            <h4 class="done">✅ Linux & Bash</h4>
+            <p class="done">Automated setup script + system monitor</p>
+        </div>
+        <div class="roadmap-item">
+            <h4 class="pending">⏳ Docker</h4>
+            <p class="pending">Containerize the app</p>
+        </div>
+        <div class="roadmap-item">
+            <h4 class="pending">⏳ CI/CD</h4>
+            <p class="pending">GitHub Actions pipeline</p>
+        </div>
+        <div class="roadmap-item">
+            <h4 class="pending">⏳ AWS</h4>
+            <p class="pending">Deploy to the cloud</p>
+        </div>
+        <div class="roadmap-item">
+            <h4 class="pending">⏳ Terraform</h4>
+            <p class="pending">Infrastructure as code</p>
+        </div>
+        <div class="roadmap-item">
+            <h4 class="pending">⏳ Kubernetes</h4>
+            <p class="pending">Container orchestration</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

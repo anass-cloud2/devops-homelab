@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5">
+    <title>DevOps Home Lab</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 20px 40px;
+            border-bottom: 1px solid #00d4ff33;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            letter-spacing: 2px;
+        }
+
+        header span {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        nav {
+            background: #12122a;
+            padding: 12px 40px;
+            border-bottom: 1px solid #ffffff11;
+        }
+
+        nav a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin-right: 24px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover { color: #fff; }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .hero .uptime {
+            display: inline-block;
+            margin-top: 15px;
+            background: #00d4ff11;
+            border: 1px solid #00d4ff44;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #00d4ff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #1a1a2e;
+            border: 1px solid #ffffff11;
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #00d4ff44;
+        }
+
+        .card h3 {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .card .value span {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        .bar-bg {
+            background: #ffffff11;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .bar-cpu { background: linear-gradient(90deg, #00d4ff, #0088ff); }
+        .bar-mem { background: linear-gradient(90deg, #a855f7, #ec4899); }
+        .bar-disk { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            font-size: 0.8rem;
+            margin-top: 60px;
+            border-top: 1px solid #ffffff11;
+        }
+
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⚡ DEVOPS HOME LAB</h1>
+    <span><span class="status-dot"></span>System Online — {{ stats.time }}</span>
+</header>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/about">About</a>
+</nav>
+
+<div class="container">
+
+    <div class="hero">
+        <h2>System Monitor Dashboard</h2>
+        <p>Live system metrics — refreshes every 5 seconds</p>
+        <div class="uptime">⏱ Uptime: {{ stats.uptime }}</div>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>CPU Usage</h3>
+            <div class="value">{{ stats.cpu }}<span>%</span></div>
+            <div class="bar-bg">
+                <div class="bar-fill bar-cpu" style="width: {{ stats.cpu }}%"></div>
+            </div>
+            <div class="bar-label">
+                <span>0%</span>
+                <span>100%</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Memory Usage</h3>
+            <div class="value">{{ stats.memory_used }}<span>GB / {{ stats.memory_total }}GB</span></div>
+            <div class="bar-bg">
+                <div class="bar-fill bar-mem" style="width: {{ stats.memory_percent }}%"></div>
+            </div>
+            <div class="bar-label">
+                <span>{{ stats.memory_percent }}% used</span>
+                <span>{{ stats.memory_total }}GB total</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Disk Usage</h3>
+            <div class="value">{{ stats.disk_used }}<span>GB / {{ stats.disk_total }}GB</span></div>
+            <div class="bar-bg">
+                <div class="bar-fill bar-disk" style="width: {{ stats.disk_percent }}%"></div>
+            </div>
+            <div class="bar-label">
+                <span>{{ stats.disk_percent }}% used</span>
+                <span>{{ stats.disk_total }}GB total</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    Built by Anass — <a href="https://github.com/anass-cloud2/devops-homelab">github.com/anass-cloud2</a> — DevOps Home Lab Project
+</footer>
+
+</body>
+</html>

@@ -9,7 +9,7 @@ echo "[2/4] Installing Python3 and pip..."
 sudo apt install python3 python3-pip -y
 
 echo "[3/4] Installing Flask..."
-pip3 install flask --break-system-packages
+pip3 install flask psutil --break-system-packages
 
 echo "[4/4] Starting the app..."
 python3 app/app.py
