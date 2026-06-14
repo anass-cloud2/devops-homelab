@@ -3,7 +3,7 @@
 echo "=== DevOps Home Lab Setup ==="
 
 echo "[1/4] Updating system..."
-sudo apt update -y
+sudo apt update && sudo apt upgrade -y
 
 echo "[2/4] Installing Python3 and pip..."
 sudo apt install python3 python3-pip -y
