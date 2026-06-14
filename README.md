@@ -5,7 +5,8 @@ Each new skill I learn gets added to this project.
 
 ## Current Stack
 - Python Flask app
-- Bash automation script
+- Bash automation script ( setup.sh)
+-Bash system monitor (monitor.sh)
 
 ## How to Run
 ```bash
@@ -16,7 +17,7 @@ chmod +x setup.sh
 ```
 
 ## Roadmap
-- [x] Linux & Bash — automated setup script
+- [x] Linux & Bash — setup script + system monitor
 - [ ] Docker — containerize the app
 - [ ] CI/CD — GitHub Actions pipeline
 - [ ] AWS — deploy to the cloud
