@@ -18,7 +18,7 @@ chmod +x setup.sh
 
 ## Roadmap
 - [x] Linux & Bash — setup script + system monitor
-- [ ] Docker — containerize the app
+- [x] Docker — containerize the app
 - [ ] CI/CD — GitHub Actions pipeline
 - [ ] AWS — deploy to the cloud
 - [ ] Terraform — infrastructure as code
